@@ -15,3 +15,19 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/resume', function(){
+	return "this is my resume";
+});
+
+Route::get('/portfolio', function(){
+	return "this is my portfolio";
+});
+
+Route::get('/theview/{name}', function($name){
+	$data = array(
+		'name'    => $name,
+		'another' => 'some variable stuff'
+		);
+	return View::make('my-first-view')->with($data);
+});
