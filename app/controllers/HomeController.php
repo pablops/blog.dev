@@ -20,4 +20,20 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function showPubs()
+	{
+		return View::make('pubs');
+	}
+
+	public function showPortfolio()
+	{
+		return View::make('portfolio');
+	}	
+
+	public function showMain()
+	{
+		return View::make('main');
+	}
+
+
 }

@@ -20,14 +20,20 @@ Route::get('/resume', function(){
 	return "this is my resume";
 });
 
-Route::get('/portfolio', function(){
-	return "this is my portfolio";
-});
+// Route::get('/portfolio', function(){
+// 	return View::make('portfolio');
+// });
 
-Route::get('/theview/{name}', function($name){
+Route::get('/portfolio', 'HomeController@showPortfolio');
+
+Route::get('/pubs', 'HomeController@showPubs');
+
+Route::get('/main', 'HomeController@showMain');
+
+Route::get('/rolldice/{guess}', function($guess){
 	$data = array(
-		'name'    => $name,
-		'another' => 'some variable stuff'
+		'rando' => rand(1,6),
+		'guess' => $guess
 		);
-	return View::make('my-first-view')->with($data);
+	return View::make('roll-dice')->with($data);
 });
