@@ -15,13 +15,13 @@
 			/
 			<a href="http://twitter.com"><i class="fa fa-twitter"></i></a>
 			/	
-			<a href="#"><i class="fa fa-envelope"></i></a>	
+			<a href="{{{ action('HomeController@showEmail') }}}"><i class="fa fa-envelope"></i></a>	
 		</div>	
 	</header>
-	@yield('content')
+		@yield('content')
 	<footer>
 		<div id='footer-content'>
-			copyright <?= date('Y'); ?>
+			©<?= date('Y'); ?>
 		</div>
 	</footer>
 </body>

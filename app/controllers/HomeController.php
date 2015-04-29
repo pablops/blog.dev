@@ -35,5 +35,9 @@ class HomeController extends BaseController {
 		return View::make('main');
 	}
 
+	public function showEmail()
+	{
+		return View::make('email');
+	}
 
 }

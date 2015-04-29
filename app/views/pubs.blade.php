@@ -3,8 +3,6 @@
 @section('content')
 	<div id='pubs-page-div'>
 		<h1>publications</h1>
-
-
 		<div class='port-links'>
 			<p class='print-only'>"the first man in space" {print}<p>
 			<p>moon city review, spring 2015</p>

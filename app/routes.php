@@ -11,29 +11,12 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
-
-Route::get('/resume', function(){
-	return "this is my resume";
-});
-
-// Route::get('/portfolio', function(){
-// 	return View::make('portfolio');
-// });
-
 Route::get('/portfolio', 'HomeController@showPortfolio');
 
 Route::get('/pubs', 'HomeController@showPubs');
 
 Route::get('/main', 'HomeController@showMain');
 
-Route::get('/rolldice/{guess}', function($guess){
-	$data = array(
-		'rando' => rand(1,6),
-		'guess' => $guess
-		);
-	return View::make('roll-dice')->with($data);
-});
+Route::get('/email', 'HomeController@showEmail');
+
+Route::resource('posts', 'PostsController');
