@@ -9,9 +9,10 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return "all posts here";
+		return View::make('posts.index')->with(['posts'=>Post::all()]);
+		// $posts = Post::all();
+		// return View::make('posts.index')->with(['post' => $posts]);
 	}
-
 
 	/**
 	 * Show the form for creating a new resource.
@@ -20,9 +21,8 @@ class PostsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return "the create function function function ERROR";
+		return View::make('posts.create');
 	}
-
 
 	/**
 	 * Store a newly created resource in storage.
@@ -30,8 +30,18 @@ class PostsController extends \BaseController {
 	 * @return Response
 	 */
 	public function store()
-	{
-		return "the store function";
+	{	
+		$validator = Validator::make(Input::all(), Post::$rules);
+
+		if($validator->fails()){
+			return Redirect::to('posts/create')->withInput()->withErrors($validator);
+		} else{
+			$post        = new Post;
+			$post->title = Input::get('title');
+			$post->body  = Input::get('body');
+			$post->save();
+			return Redirect::action('PostsController@index');
+		}
 	}
 
 
@@ -43,7 +53,14 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		return "show id";
+		try{
+			$post = Post::findOrFail($id);
+			$data = ['post' => $post];
+			return View::make('posts.show')->with($data);
+		} catch(Exception $e) {
+			$data = ['error' => $e->getMessage()];
+			// return View::make('errors.exception')->with($data);
+		}
 	}
 
 
