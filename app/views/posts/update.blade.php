@@ -4,14 +4,14 @@
 	@foreach($errors->all() as $error)
 		{{ $error }}
 	@endforeach	
-	<form action="{{{ action('PostsController@store') }}}" method="post">
+	<form action="{{{ action('PostsController@update') }}}" method="post">
 		<br>
 		{{ Form::token() }}
-		<h1>test form #1</h1>
+		<h1>edit form</h1>
 		<label>this is a label</label>
-		<input type="text" name="title" value="{{{ Input::old('title') }}}"><br>
+		<input type="text" name="title" value="{{{ $post->title }}}"><br>
 		<label>this is text</label>
-		<input type="text" name="body" value="{{{ Input::old('body') }}}"><br>
+		<input type="text" name="body" value="{{{ $post->body }}}"><br>
 		<input type="submit" value="Submit" />
 	</form>
 	

@@ -9,7 +9,7 @@ class PostsController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('posts.index')->with(['posts'=>Post::all()]);
+		return View::make('posts.index')->with(['posts'=>Post::paginate(4)]);
 		// $posts = Post::all();
 		// return View::make('posts.index')->with(['post' => $posts]);
 	}
@@ -72,7 +72,14 @@ class PostsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		return "edit edit edit";
+		try{
+			$post = Post::findOrFail($id);
+			$data = ['post' => $post];
+			return View::make('posts.update')->with($data);
+		} catch(Exception $e) {
+			$data = ['error' => $e->getMessage()];
+			// return View::make('errors.exception')->with($data);
+		}
 	}
 
 
@@ -84,7 +91,11 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		return "update";
+			$post        = new Post;
+			$post->title = Input::get('title');
+			$post->body  = Input::get('body');
+			$post->save();
+			return Redirect::action('PostsController@show', $id);
 	}
 
 

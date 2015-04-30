@@ -18,5 +18,7 @@ Route::get('/main', 'HomeController@showMain');
 
 Route::get('/email', 'HomeController@showEmail');
 
+Route::get('/update', 'HomeController@showUpdate');
+
 Route::resource('posts', 'PostsController');
 

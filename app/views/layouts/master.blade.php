@@ -9,13 +9,15 @@
 		<div class='div-links'>
 			<a href="http://blog.dev/main"><i class="fa fa-home"></i></a>
 			/
+			<a href="http://twitter.com"><i class="fa fa-twitter"></i></a>
+			/	
+			<a href="https://github.com/pablops"><i class="fa fa-github-alt"></i></a>	
+			/
+			<a href="{{{ action('HomeController@showEmail') }}}"><i class="fa fa-envelope"></i></a>	
+			/
 			<a href="{{{ action('HomeController@showPortfolio') }}}"> portfolio</a>
 			/
 			<a href="{{{ action('HomeController@showPubs') }}}">publications</a>
-			/
-			<a href="http://twitter.com"><i class="fa fa-twitter"></i></a>
-			/	
-			<a href="{{{ action('HomeController@showEmail') }}}"><i class="fa fa-envelope"></i></a>	
 		</div>	
 	</header>
 		@yield('content')
