@@ -91,7 +91,7 @@ class PostsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-			$post        = new Post;
+			$post        = Post::findOrFail($id);
 			$post->title = Input::get('title');
 			$post->body  = Input::get('body');
 			$post->save();

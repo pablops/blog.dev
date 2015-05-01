@@ -4,7 +4,7 @@
 	@foreach($errors->all() as $error)
 		{{ $error }}
 	@endforeach	
-	<form action="{{{ action('PostsController@update') }}}" method="post">
+		{{ Form::open(array('action' => array('PostsController@update', $post->id),				   'method' => 'put')) }}
 		<br>
 		{{ Form::token() }}
 		<h1>edit form</h1>
