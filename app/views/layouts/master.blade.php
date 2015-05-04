@@ -19,6 +19,12 @@
 			/
 			<a href="{{{ action('HomeController@showPubs') }}}">publications</a>
 		</div>	
+		@if (Session::has('successMessage'))
+		    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
+		@endif
+		@if (Session::has('errorMessage'))
+		    <div class="alert alert-danger">{{{ Session::get('errorMessage') }}}</div>
+		@endif
 	</header>
 		@yield('content')
 	<footer>

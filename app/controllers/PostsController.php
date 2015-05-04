@@ -13,7 +13,6 @@ class PostsController extends \BaseController {
 		// $posts = Post::all();
 		// return View::make('posts.index')->with(['post' => $posts]);
 	}
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -34,6 +33,7 @@ class PostsController extends \BaseController {
 		$validator = Validator::make(Input::all(), Post::$rules);
 
 		if($validator->fails()){
+			Log::info('There is an error.');
 			return Redirect::to('posts/create')->withInput()->withErrors($validator);
 		} else{
 			$post        = new Post;
@@ -42,6 +42,7 @@ class PostsController extends \BaseController {
 			$post->save();
 			return Redirect::action('PostsController@index');
 		}
+
 	}
 
 
@@ -59,6 +60,8 @@ class PostsController extends \BaseController {
 			return View::make('posts.show')->with($data);
 		} catch(Exception $e) {
 			$data = ['error' => $e->getMessage()];
+			Session::flash('errorMessage', 'error with post');
+			App::abort(404);
 			// return View::make('errors.exception')->with($data);
 		}
 	}
@@ -75,9 +78,10 @@ class PostsController extends \BaseController {
 		try{
 			$post = Post::findOrFail($id);
 			$data = ['post' => $post];
-			return View::make('posts.update')->with($data);
+			return View::make('posts.edit')->with($data);
 		} catch(Exception $e) {
 			$data = ['error' => $e->getMessage()];
+			Session::flash('errorMessage', 'error with post');
 			// return View::make('errors.exception')->with($data);
 		}
 	}
@@ -95,6 +99,7 @@ class PostsController extends \BaseController {
 			$post->title = Input::get('title');
 			$post->body  = Input::get('body');
 			$post->save();
+			Session::flash('successMessage', 'Post successfully updated.');
 			return Redirect::action('PostsController@show', $id);
 	}
 
@@ -107,7 +112,12 @@ class PostsController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		return "destroy";
+		$post = Post::findOrFail($id);
+		$post->delete();
+
+		Session::flash('successMessage', 'Post successfully deleted.');
+
+		return Redirect::action('PostsController@index');
 	}
 
 

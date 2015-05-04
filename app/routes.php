@@ -22,3 +22,4 @@ Route::get('/update', 'HomeController@showUpdate');
 
 Route::resource('posts', 'PostsController');
 
+

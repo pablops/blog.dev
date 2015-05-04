@@ -9,10 +9,10 @@
 		{{ Form::token() }}
 		<h1>edit form</h1>
 		<label>this is a label</label>
-		<input type="text" name="title" value="{{{ $post->title }}}"><br>
+		<input type="text" name="title" value="{{{ $post->title }}}" autofocus><br>
 		<label>this is text</label>
-		<input type="text" name="body" value="{{{ $post->body }}}"><br>
-		<input type="submit" value="Submit" />
+		<textarea type="text" name="body">{{{ $post->body }}}</textarea><br>
+		<input type="submit" value="edit post" />
 	</form>
 	
 	

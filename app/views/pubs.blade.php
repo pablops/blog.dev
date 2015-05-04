@@ -1,5 +1,6 @@
 @extends('layouts.master')
 
+
 @section('content')
 	<div id='pubs-page-div'>
 		<h1>publications</h1>

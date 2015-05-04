@@ -7,13 +7,11 @@
 	<form action="{{{ action('PostsController@store') }}}" method="post">
 		<br>
 		{{ Form::token() }}
-		<h1>test form #1</h1>
+		<h1>create a post</h1>
 		<label>this is a label</label>
-		<input type="text" name="title" value="{{{ Input::old('title') }}}"><br>
+		<input type="text" name="title" value="{{{ Input::old('title') }}}" autofocus><br>
 		<label>this is text</label>
-		<input type="text" name="body" value="{{{ Input::old('body') }}}"><br>
+		<textarea type="text" name="body" value="{{{ Input::old('body') }}}"></textarea><br>
 		<input type="submit" value="Submit" />
-	</form>
-	
-	
+	</form>	
 @stop
