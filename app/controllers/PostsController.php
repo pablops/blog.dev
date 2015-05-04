@@ -1,7 +1,6 @@
 <?php
 
 class PostsController extends \BaseController {
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -39,6 +38,7 @@ class PostsController extends \BaseController {
 			$post        = new Post;
 			$post->title = Input::get('title');
 			$post->body  = Input::get('body');
+			$post->slug  = Input::get('title');
 			$post->save();
 			return Redirect::action('PostsController@index');
 		}
