@@ -14,7 +14,8 @@
 	</div>	
 
 	<div class="pagination">
-		{{ $posts->links() }}
+		{{ $posts->links() }}<br>
+		<a href="/logout">logout</a>
 	</div>
 	
 @stop

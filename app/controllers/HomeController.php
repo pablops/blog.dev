@@ -57,9 +57,10 @@ class HomeController extends BaseController {
 		$password = Input::get('password');
 
 		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
-    		return Redirect::intended('/');
+    		return Redirect::intended('posts');
 		} else {
     		// login failed, go back to the login screen
+    		dd('did not log in');
 		}
 	}
 
@@ -67,6 +68,7 @@ class HomeController extends BaseController {
 	public function logout()
 	{
 		Auth::logout();
+		return View::make('login-form');
 	}
 
 	public function showLogin()
