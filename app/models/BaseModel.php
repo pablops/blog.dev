@@ -15,10 +15,6 @@ class BaseModel extends Eloquent {
     	return $utc->setTimezone('America/Chicago');
 	}
 
-	public function setSlugAttribute($value)
-	{
-    	$this->attributes['slug'] = Str::slug($value,'-');
-	}
 
 }
 

@@ -6,6 +6,11 @@ class PostsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+	public function _construct()
+	{
+		$this->beforeFilter('auth', array('only' => array('index', 'create')));
+	}
+
 	public function index()
 	{
 		return View::make('posts.index')->with(['posts'=>Post::paginate(4)]);
@@ -54,16 +59,22 @@ class PostsController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		try{
+		$post = null;
+		
+		if(is_numeric($id)){
 			$post = Post::findOrFail($id);
-			$data = ['post' => $post];
-			return View::make('posts.show')->with($data);
-		} catch(Exception $e) {
-			$data = ['error' => $e->getMessage()];
+		} else {
+			$slug = $id;
+			$post = Post::where('slug', $slug)->first();
+		}
+
+		if(!$post){
 			Session::flash('errorMessage', 'error with post');
 			App::abort(404);
-			// return View::make('errors.exception')->with($data);
 		}
+		
+		$data = ['post' => $post];
+		return View::make('posts.show')->with($data);
 	}
 
 

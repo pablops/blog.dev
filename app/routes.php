@@ -20,6 +20,8 @@ Route::get('/email', 'HomeController@showEmail');
 
 Route::get('/update', 'HomeController@showUpdate');
 
+Route::get('/login-form', 'HomeController@showLogin');
+
 Route::resource('posts', 'PostsController');
 
 

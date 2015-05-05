@@ -14,6 +14,11 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+	public function _construct()
+	{
+		$this->beforeFilter('authUser', array('only' => 'showMain'));
+	}
+
 	public function showWelcome()
 	{
 		return View::make('hello');
@@ -37,6 +42,36 @@ class HomeController extends BaseController {
 	public function showEmail()
 	{
 		return View::make('email');
+	}
+
+	// get route
+	public function login()
+	{
+		// show login form
+	}
+
+	// post route
+	public function doLogin()
+	{
+		$email    = Input::get('email');
+		$password = Input::get('password');
+
+		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
+    		return Redirect::intended('/');
+		} else {
+    		// login failed, go back to the login screen
+		}
+	}
+
+	// get route
+	public function logout()
+	{
+		Auth::logout();
+	}
+
+	public function showLogin()
+	{
+		return View::make('login-form');
 	}
 
 
