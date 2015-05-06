@@ -6,9 +6,9 @@ class PostsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function _construct()
+	public function __construct()
 	{
-		$this->beforeFilter('auth', array('only' => array('index', 'create')));
+		$this->beforeFilter('auth', ['except' => ['index', 'show', 'showLogin']]);
 	}
 
 	public function index()
@@ -26,7 +26,6 @@ class PostsController extends \BaseController {
 	{
 		return View::make('posts.create');
 	}
-
 	/**
 	 * Store a newly created resource in storage.
 	 *

@@ -14,9 +14,9 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-	public function _construct()
+	public function __construct()
 	{
-		$this->beforeFilter('authUser', array('only' => 'showMain'));
+		// $this->beforeFilter('auth', ['except' => ['index', 'show', 'showLogin']]);
 	}
 
 	public function showWelcome()
@@ -47,7 +47,7 @@ class HomeController extends BaseController {
 	// get route
 	public function login()
 	{
-		// show login form
+		return View::make('login-form');
 	}
 
 	// post route
@@ -57,10 +57,13 @@ class HomeController extends BaseController {
 		$password = Input::get('password');
 
 		if (Auth::attempt(array('email' => $email, 'password' => $password))) {
-    		return Redirect::intended('posts');
+    		Session::flash('successMessage', 'User logged in.');
+    		return Redirect::intended('/');
 		} else {
     		// login failed, go back to the login screen
-    		dd('did not log in');
+    		Session::flash('errorMessage', 'Login failed.');
+    		return Redirect::back()->withInput();
+    		
 		}
 	}
 

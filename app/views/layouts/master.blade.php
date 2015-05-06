@@ -18,7 +18,16 @@
 			<a href="{{{ action('HomeController@showPortfolio') }}}"> portfolio</a>
 			/
 			<a href="{{{ action('HomeController@showPubs') }}}">publications</a>
+			@if(Auth::check())
+			/
+			<a href="/logout">logout</a>
+			@endif
 		</div>	
+		<div>
+			@if(Auth::check())
+			<pre> {{ Auth::user()->email }} </pre>
+			@endif
+		</div>
 		@if (Session::has('successMessage'))
 		    <div class="alert alert-success">{{{ Session::get('successMessage') }}}</div>
 		@endif
