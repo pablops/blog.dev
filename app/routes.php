@@ -29,3 +29,24 @@ Route::get('/logout', 'HomeController@logout');
 Route::resource('posts', 'PostsController');
 
 
+Route::get('orm-test', function()
+{
+	$query  = Post::with('user');
+
+	$search = 'pablo';
+
+	$query->where('title', 'like', '%' . $search . '%');
+	$query->orWhere('body', 'like', '%' . $search . '%');
+
+	$query->orWhereHas('user', function($q){
+		$q->where('email', 'like', '%pablo%');
+	});
+
+	$post = $query->orderBy('created_at', 'DESC')->paginate(10);
+
+	dd($post);
+
+});
+
+
+

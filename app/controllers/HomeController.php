@@ -63,10 +63,9 @@ class HomeController extends BaseController {
     		// login failed, go back to the login screen
     		Session::flash('errorMessage', 'Login failed.');
     		return Redirect::back()->withInput();
-    		
+
 		}
 	}
-
 	// get route
 	public function logout()
 	{
@@ -77,6 +76,12 @@ class HomeController extends BaseController {
 	public function showLogin()
 	{
 		return View::make('login-form');
+	}
+
+
+	$post = $query->orderBy('created_at', 'DESC')->paginate(10);
+
+	dd($post);
 	}
 
 

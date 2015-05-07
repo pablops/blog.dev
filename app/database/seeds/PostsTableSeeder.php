@@ -15,7 +15,7 @@ class PostsTableSeeder extends Seeder {
 								 the $i body $i the $i body $i
 								 the $i body $i the $i body $i";
 			$post1->slug      = "title $i";
-			$post1->user_id   = rand(1,3);
+			$post1->user_id   = User::all()->random()->id;
 			$post1->save();
 		}
 	}

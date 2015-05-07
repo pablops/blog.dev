@@ -9,13 +9,20 @@ class PostsController extends \BaseController {
 	public function __construct()
 	{
 		$this->beforeFilter('auth', ['except' => ['index', 'show', 'showLogin']]);
+		parent::__construct();
 	}
 
 	public function index()
 	{
-		return View::make('posts.index')->with(['posts'=>Post::paginate(4)]);
-		// $posts = Post::all();
-		// return View::make('posts.index')->with(['post' => $posts]);
+		$query  = Post::with('user');
+		
+		if(Input::has('search')){
+			$search = Input::get('search');
+			$query->where('title', 'like', '%' . $search . '%');
+		}
+			$post = $query->orderBy('created_at', 'DESC')->paginate(10);
+			return View::make('posts.index')->with(['posts'=> $post]);
+
 	}
 	/**
 	 * Show the form for creating a new resource.
@@ -92,7 +99,6 @@ class PostsController extends \BaseController {
 		} catch(Exception $e) {
 			$data = ['error' => $e->getMessage()];
 			Session::flash('errorMessage', 'error with post');
-			// return View::make('errors.exception')->with($data);
 		}
 	}
 

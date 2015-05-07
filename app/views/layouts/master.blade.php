@@ -22,6 +22,14 @@
 			/
 			<a href="/logout">logout</a>
 			@endif
+			{{-- search box init --}}
+			<form method="get" action="{{ action('PostsController@index') }}">
+    			<div>
+        		<input type="text" name="search" value="">
+        		<button type="submit">search</button>
+        	{{-- search box ends --}}
+    </div>
+</form>
 		</div>	
 		<div>
 			@if(Auth::check())
