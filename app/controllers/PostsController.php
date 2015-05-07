@@ -119,8 +119,6 @@ class PostsController extends \BaseController {
 			Session::flash('successMessage', 'Post successfully updated.');
 			return Redirect::action('PostsController@show', $id);
 	}
-
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
