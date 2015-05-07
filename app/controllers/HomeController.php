@@ -79,10 +79,5 @@ class HomeController extends BaseController {
 	}
 
 
-	$post = $query->orderBy('created_at', 'DESC')->paginate(10);
-
-	dd($post);
-	}
-
 
 }

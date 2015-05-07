@@ -4,7 +4,7 @@
 	@foreach($errors->all() as $error)
 		{{ $error }}
 	@endforeach	
-		{{ Form::open(array('action' => array('PostsController@update', $post->id),				   'method' => 'put')) }}
+		{{ Form::open(array('action' => array('PostsController@update', $post->id),	                'method' => 'put')) }}
 		<br>
 		{{ Form::token() }}
 		<h1>edit form</h1>

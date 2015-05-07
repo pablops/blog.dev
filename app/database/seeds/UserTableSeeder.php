@@ -7,7 +7,7 @@ class UserTableSeeder extends Seeder {
 		for ($i = 1; $i <= 100; $i++) {
 			$user1                = new User();
 			$user1->email         = "email@email.$i";
-			$user1->password      = "password";
+			$user1->password      = $_ENV['DEFAULT_USER'];
 			$user1->save();
 		}
 	}

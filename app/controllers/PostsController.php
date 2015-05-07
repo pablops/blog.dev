@@ -46,10 +46,11 @@ class PostsController extends \BaseController {
 			Log::info('There is an error.');
 			return Redirect::to('posts/create')->withInput()->withErrors($validator);
 		} else{
-			$post        = new Post;
-			$post->title = Input::get('title');
-			$post->body  = Input::get('body');
-			$post->slug  = Input::get('title');
+			$post             = new Post;
+			$post->title      = Input::get('title');
+			$post->body       = Input::get('body');
+			$post->slug       = Input::get('title');
+			$post->user_id    = User::all()->random()->id;
 			$post->save();
 			return Redirect::action('PostsController@index');
 		}
