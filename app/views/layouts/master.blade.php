@@ -17,7 +17,7 @@
 			/
 			<a href="{{{ action('HomeController@showPortfolio') }}}"> portfolio</a>
 			/
-			<a href="{{{ action('HomeController@showPubs') }}}">publications</a>
+			<a href="{{{ action('HomeController@showPubs') }}}">publicationsTEST</a>
 			@if(Auth::check())
 			/
 			<a href="/logout">logout</a>
