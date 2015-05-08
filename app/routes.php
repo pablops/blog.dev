@@ -14,7 +14,7 @@ Route::get('/portfolio', 'HomeController@showPortfolio');
 
 Route::get('/pubs', 'HomeController@showPubs');
 
-Route::get('/main', 'HomeController@showMain');
+Route::get('/', 'HomeController@showMain');
 
 Route::get('/email', 'HomeController@showEmail');
 
