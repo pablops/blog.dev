@@ -24,9 +24,14 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
-	public function showPubs()
+	public function showFiction()
 	{
-		return View::make('pubs');
+		return View::make('fiction');
+	}
+
+	public function showNonfiction()
+	{
+		return View::make('nonfiction');
 	}
 
 	public function showPortfolio()

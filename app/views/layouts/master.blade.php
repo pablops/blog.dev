@@ -7,7 +7,7 @@
 <body>
 	<header>
 		<div class='div-links'>
-			<a href="http://blog.dev/main"><i class="fa fa-home"></i></a>
+			<a href="http://blog.dev/"><i class="fa fa-home"></i></a>
 			/
 			<a href="http://twitter.com"><i class="fa fa-twitter"></i></a>
 			/	
@@ -17,7 +17,9 @@
 			/
 			<a href="{{{ action('HomeController@showPortfolio') }}}"> portfolio</a>
 			/
-			<a href="{{{ action('HomeController@showPubs') }}}">publications</a>
+			<a href="{{{ action('HomeController@showFiction') }}}">fiction</a>
+			/
+			<a href="{{{ action('HomeController@showNonfiction') }}}">nonfiction</a>
 			@if(Auth::check())
 			/
 			<a href="/logout">logout</a>

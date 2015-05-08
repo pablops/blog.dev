@@ -12,7 +12,9 @@
 */
 Route::get('/portfolio', 'HomeController@showPortfolio');
 
-Route::get('/pubs', 'HomeController@showPubs');
+Route::get('/fiction', 'HomeController@showFiction');
+
+Route::get('/nonfiction', 'HomeController@showNonfiction');
 
 Route::get('/', 'HomeController@showMain');
 
