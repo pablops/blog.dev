@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Laravel Blog</title>
+	<title>*pablo*piñero*</title>
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>

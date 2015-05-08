@@ -16,6 +16,7 @@
 			<br>
 			<a href="http://recommendedreading.tumblr.com/post/82184499174/unhappiness-guanajuato-by-pablo-pinero">"unhappiness, guanajuato"</a>
 			<p>electric literature, april 2014</p>
+			<p>on amazon (for kindle) <a href="http://www.amazon.com/Unhappiness-Guanajuato-Electric-Literatures-Recommended-ebook/dp/B00JJS9QDQ">here</a>
 			<br>
 			<a href="http://www.fwrictionreview.com/post/67652131016/postmodern-act-in-the-history-of-religion-9-the">"postmodern act in the history of religion #9"</a>
 			<p>fwriction:review, may 2013</p>
