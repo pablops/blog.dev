@@ -5,10 +5,12 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"esensi/model": "0.3.*"
 	},
 	"require-dev": {
-		"barryvdh/laravel-debugbar": "1.8.*"
+		"barryvdh/laravel-debugbar": "1.8.*",
+		"way/generators": "2.6.1"
 	},
 	"autoload": {
 		"classmap": [

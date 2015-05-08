@@ -12,10 +12,10 @@ return array(
 	| application. If disabled, a simple generic error page is shown.
 	|
 	*/
-
 	'debug' => true,
 	'providers' => append_config(array(
-		'Barryvdh\Debugbar\ServiceProvider'
+		'Barryvdh\Debugbar\ServiceProvider',
+		'Way\Generators\GeneratorsServiceProvider'
 	)),
 	'aliases' => append_config(array(
 		'Debugbar' => 'Barryvdh\Debugbar\Facade'
